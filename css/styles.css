@@ -251,7 +251,7 @@ nav h1 a {
   width: 90%;
 }
 #restaurant-cuisine {
-  background-color: #231e1e;
+  background-color: #252831;
   color: #ddd;
   font-size: 1.2rem;
   font-weight: 300;
@@ -307,7 +307,7 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
-/* ====================== Restaurant Block Section ====================== */
+/* ====================== Restaurant Review Block Section ====================== */
 .review-header {
 	background-color: #252831;
 	padding: 15px 15px 0 20px;
@@ -341,4 +341,34 @@ nav h1 a {
 	font-size: 1.35rem;
 	letter-spacing: 0.05rem;
 }
+/* ====================== Restaurant Review Block End Section ====================== */
+
+#restaurant-hours {
+	margin: 10px auto;
+	width: 90%;
+}
+#restaurant-hours tr:nth-child(odd) {
+	background-color: #e4e4e4;
+}
+#restaurant-hours td {
+  color: #333;
+}
+@media only screen and (max-width: 1023px) { /* media query for tablets and phones */
+	.inside #map-container {
+	  top: 0;
+	}
+	.inside #map-container {
+		height: 50vh;
+		width: 100%;
+		position: relative;
+	}
+	#restaurant-container, #reviews-container {
+	  width: 100%;
+	}
+	.inside #footer {
+	  width: 100%;
+	}
+}
+
+
 
