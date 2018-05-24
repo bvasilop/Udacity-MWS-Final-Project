@@ -231,7 +231,7 @@ label {
 }
 .inside #footer {
   position: absolute;
-  width: 46.1%;
+  width: 45.4%;
 }
 #restaurant-name {
   color: #f18200;
@@ -340,7 +340,7 @@ label {
 	color: #fff;
 	font-weight: 500;
 	margin-top: 10px;
-	width: 25%;
+	width: 28%;
 	padding: .2rem;
 	border-radius: .5rem;
 	text-align: center;
@@ -402,6 +402,10 @@ label {
   padding-top: 10px;
   font-size: 1.4rem;
 }
+.rating {
+    width: 26%;
+    max-width: auto;
+}
 #footer {
   padding-top: 1rem;
  }
@@ -426,11 +430,14 @@ options select {
   padding-top: 10px;
   font-size: 1.4rem;
 }
-#footer {
-  padding: 0;
- }
+.rating {
+    width: 33%;
+    max-width: auto;
 }
-@media only screen and (max-width: 425px) {
+}
+
+
+@media only screen and (max-width: 435px) {
 nav h1 a {
   font-size: 1.3rem;
   font-weight: 200;
@@ -441,7 +448,7 @@ nav h1 a {
 }
 #footer {
  padding: 1rem 0;
- font-size: .6rem;
+ font-size: .65rem;
 }
 }
 
