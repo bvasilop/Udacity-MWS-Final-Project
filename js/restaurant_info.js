@@ -57,7 +57,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-
+/**
+ * Used Picturefill and Grunt Responsive to assist with multiple image sizes
+ */
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   const imgUrlArray = [DBHelper.imageUrlForRestaurant(restaurant, 'small'),
@@ -66,7 +68,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.src = `${imgUrlArray[1]}`;
   image.srcset = `${imgUrlArray[0]} 620w, ${imgUrlArray[1]} 800w, ${imgUrlArray[2]} 1440w`;
   image.alt = `${restaurant.cuisine_type} restaurant ${restaurant.name}`;
-  image.setAttribute('tabindex', '0');
+  image.setAttribute('tabindex', '0'); //added tabindex for accessibilty
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -89,12 +91,12 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
     const day = document.createElement('td');
     day.innerHTML = key;
-    day.setAttribute('tabindex', '0');
+    day.setAttribute('tabindex', '0');//added tabindex for accessibilty
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
-    time.setAttribute('tabindex', '0');
+    time.setAttribute('tabindex', '0');//added tabindex for accessibilty
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -108,8 +110,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
-  title.setAttribute('role', 'header');
-  title.setAttribute('tabindex', '0');
+  title.setAttribute('role', 'header');//added ARIA role for accessibilty
+  title.setAttribute('tabindex', '0');//added tabindex for accessibilty
   container.appendChild(title);
 
   if (!reviews) {
@@ -137,14 +139,14 @@ createReviewHTML = (review) => {
   const name = document.createElement('h4');
   name.innerHTML = review.name;
   name.className = 'review-author';
-  name.setAttribute('role', 'header');
-  name.setAttribute('tabindex', '0');
+  name.setAttribute('role', 'header'); //added ARIA role for accessibilty
+  name.setAttribute('tabindex', '0'); //added tabindex for accessibilty
   reviewHeader.appendChild(name);
 
   const date = document.createElement('span');
   date.innerHTML = review.date;
   date.className = 'review-date';
-  date.setAttribute('tabindex', '0');
+  date.setAttribute('tabindex', '0'); //added tabindex for accessibilty
   reviewHeader.appendChild(date);
 
   const reviewContent = document.createElement('div');
@@ -154,12 +156,12 @@ createReviewHTML = (review) => {
   const rating = document.createElement('div');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.className = 'rating';
-  rating.setAttribute('tabindex', '0');
+  rating.setAttribute('tabindex', '0'); //added tabindex for accessibilty
   reviewContent.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
-  comments.setAttribute('tabindex', '0');
+  comments.setAttribute('tabindex', '0'); //added tabindex for accessibilty
   reviewContent.appendChild(comments);
 
   return li;
@@ -172,7 +174,7 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
-  li.setAttribute('aria-current', restaurant.name)
+  li.setAttribute('aria-current', restaurant.name) //added aria-current for accessibilty
   breadcrumb.appendChild(li);
 }
 

@@ -139,6 +139,10 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  /**
+ * Used Picturefill and Grunt Responsive to assist with multiple image sizes
+ */
+
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   const imgUrlArray = [DBHelper.imageUrlForRestaurant(restaurant, 'small'),
@@ -149,7 +153,9 @@ createRestaurantHTML = (restaurant) => {
   image.alt = `${restaurant.cuisine_type} restaurant ${restaurant.name}`;
   image.setAttribute('tabindex', '0');
   li.append(image);
-
+/**
+ * Added ARIA roles and TabIndex for DOM Accesibility
+ */
   const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   name.setAttribute('role', 'header');
