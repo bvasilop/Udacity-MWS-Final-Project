@@ -1,5 +1,7 @@
-importScripts('js/serviceworker-cache-polyfill.js'); // polyfill needed for service worker to work on all browsers
+//Service Worker Polyfill for cross browser support
+importScripts('js/serviceworker-cache-polyfill.js');
 
+//Files to Cache using Service Worker
 const CACHE_NAME = 'restaurant-reviews-cache-v1';
 let filesToCache = [
 	'/',
@@ -13,6 +15,8 @@ let filesToCache = [
 	'/js/serviceworker-cache-polyfill.js',
 	'/data/restaurants.json'
 ];
+
+// Image Caching Section
 let imagesToCache = generateImagesArray();
 const urlsToCache = filesToCache.concat(imagesToCache);
 
@@ -26,8 +30,7 @@ function generateImagesArray() {
 			arr.push(`${imgPath}${i}-${imgSuffixes[j]}.jpg`);
 		}
 	}
-
-	return arr;
+    return arr;
 }
 
 // INSTALL EVENT
@@ -65,7 +68,7 @@ function serveCacheFile(request) {
 
 	if (shouldFileBeCached(url)) {
 
-		// serve cached file
+		// Serve Cached Files
 		return caches.open(CACHE_NAME).then(cache => {
 			return cache.match(url).then(response => {
 				return response ? response : fetch(request.clone()).then(response => {
@@ -80,15 +83,12 @@ function serveCacheFile(request) {
 		return fetch(request).then(response => {
 			return response;
 		});
-
-	}
+    }
 }
-
 function shouldFileBeCached(url) {
 	const matchesWithUrlsToCache = urlsToCache.filter(urlToCache => url.indexOf(urlToCache) > -1);
 	return matchesWithUrlsToCache.length > 0;
 }
-
 function cleanCache(cacheName) {
 	return caches.delete(cacheName);
 }
