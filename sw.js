@@ -8,12 +8,12 @@ let filesToCache = [
 	'/index.html',
 	'/restaurant.html',
 	'/css/styles.css',
-	'/js/main.js',
+    '/js/main.js',
+    '/js/dbhelper.js',
 	'/js/restaurant_info.js',
-	'/js/dbhelper.js',
-	'/js/picturefill.min.js',
-	'/js/serviceworker-cache-polyfill.js',
-	'/data/restaurants.json'
+	'/data/restaurants.json',
+    '/js/picturefill.min.js',
+    '/js/serviceworker-cache-polyfill.js'
 ];
 
 // Image Caching Section
@@ -24,8 +24,7 @@ function generateImagesArray() {
 	const imgPath = '/img/';
 	const imgSuffixes = ['small', 'medium', 'large'];
 	const arr = [];
-
-	for (var i = 1; i < 11; i++) {
+        for (var i = 1; i < 11; i++) {
 		for (var j = 0; j < 3; j++) {
 			arr.push(`${imgPath}${i}-${imgSuffixes[j]}.jpg`);
 		}
